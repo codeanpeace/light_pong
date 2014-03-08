@@ -1,17 +1,22 @@
-// convert to PVECTORS
-
 class Paddle {
-  int number;
+  int pnum;
   color c;
-  float xPos, yPos, xSpeed, ySpeed, w, h;
+  PVector pos, speed;
+  float w, h;
   
-  Paddle(int number_, color c_) {//float xPos_, float yPos_, float xSpeed_, float ySpeed_, float w_, float h_) {
-    number = number_;
+  Paddle(int pnum_, color c_) {
+    pnum = pnum_;
     c = c_;
-//    xPos = xPos_;
-//    yPos = yPos_;
-//    xSpeed = xSpeed_;
-//    ySpeed = ySpeed_;
+    switch(pnum) {
+      case 1: 
+        break;
+      case 2: 
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+    }
 //    w = w_;
 //    h = h_;  
   }
@@ -20,12 +25,11 @@ class Paddle {
     stroke(0);
     fill(c);
     rectMode(CENTER);
-    rect(xPos, yPos, w, h);
+    rect(pos.x, pos.y, w, h);
   }
   
   void move() {
-    xPos = xPos + xSpeed;
-    yPos = yPos + ySpeed;
+    pos.add(speed);   
   }
 }    
    

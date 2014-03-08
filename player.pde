@@ -1,4 +1,4 @@
-class Player() {
+class Player {
   int number, score;
   color c;
   Paddle paddle;
