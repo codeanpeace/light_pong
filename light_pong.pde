@@ -5,6 +5,7 @@ void setup() {
   background(0);
   smooth();
   game = new Game();
+  game.setUp();
   game.begin();
 }
 
@@ -13,9 +14,10 @@ void draw() {
   game.play();
 }
 
-void mousePressed() {
-  int currentCount = game.balls.length;
-  for (int i = 0; i < currentCount; i++) {
-    game.balls[i].split();
-  }
-}
+// tests split function
+//void mousePressed() {
+//  int currentCount = game.balls.length;
+//  for (int i = 0; i < currentCount; i++) {
+//    game.balls[i].split();
+//  }
+//}
