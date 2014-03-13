@@ -5,10 +5,10 @@ Game game;
 color[] colors;
 
 void setup() {
-  size(800,800);
+  size(800,800); //non-native - rescaling is computationally taxing
   background(0);
   smooth();
-  video = new Capture(this, width, height, 15);
+  video = new Capture(this, 320, 240, 15);
   video.start();
   colors = new color[0];
   game = new Game();
