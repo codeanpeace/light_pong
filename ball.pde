@@ -1,4 +1,5 @@
-
+//creates the game ball
+//the ball has a color, position, diameter and speed
 
 class Ball {
   color c;
@@ -23,19 +24,22 @@ class Ball {
     bounce();
     score();
   }
-  
+
+//states that if the ball reaches the edge of the screen:
   void score() {
     // left edge
     if ((pos.x < d/2) || (pos.y < d/2) || (pos.x > (width - d/2)) || (pos.y > (height - d/2)) ) {
-      game.balls = new Ball[0];;
-      game.begin();
+      game.balls = new Ball[0];;  //ball array is emptied
+      game.begin(); //game is restarted
       for (int i=0; i<game.players.length; i++){
        if (c == game.players[i].c){
-         game.players[i].score+=1;
+         game.players[i].score+=1;  //score is updated for the player that touched it last
          println(game.players[i], game.players[i].score);
        }
     }
   }}
+  //states thats if the edge of the circle coincides with the edge of the paddle
+  //the speed vector direction sould reverse aka bounce
   void bounce(){
       //top edge
       Paddle p1 = game.paddles[1];
@@ -66,7 +70,9 @@ class Ball {
         c = p2.c; }
     
       }
-  
+
+//causes the current ball to "split" by creating a new instance of a ball
+//and appending it to an array
   void split() {
     float randomness= random(0.5, 1);
     PVector pos2, speed2;

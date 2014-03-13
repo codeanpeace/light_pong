@@ -2,7 +2,7 @@ class Game {
   Player[] players;
   Paddle[] paddles;
   Ball[] balls;
-  int winScore = 10;
+  int winScore = 10; //sets the score needed to win
   
   Game() {
     players = new Player[0];
@@ -11,6 +11,7 @@ class Game {
   }
 
 void setUp(){
+  //initializes four players, each with its own color and adds the paddles
     players = (Player[])append(players, new Player(1, color(234,24,27)));
     players = (Player[])append(players, new Player(2, color(24,234,197)));
     players = (Player[])append(players, new Player(3, color(246,255,3)));
@@ -20,13 +21,9 @@ void setUp(){
     }}
 
   void begin() {
-    // kickoff!!
-//    println("BEGIN!");
-    // brownie points if you have a slider that dynamically changes ball size and speed magnitude
+//initializes a new ball with the color white (neutral) and appends to ball array
     PVector pos = new PVector(400, 400);
-    // randomize speed between -2 and 2
     PVector speed = new PVector(random(-2, 2), random(-2, 2));
-//    PVector speed = new PVector(.5, -1);
     speed.setMag(5);
     color c = color(255);
     Ball ball = new Ball(c, pos, speed, d);
@@ -42,6 +39,7 @@ void setUp(){
       paddles[i].display();
       paddles[i].move();
     }
+    //if a player reaches the win score, the game stops
     for (int i = 0; i < players.length; i++) {
       players[i].display();
       if (players[i].score >= winScore) {
@@ -51,27 +49,7 @@ void setUp(){
         begin();
       }
     }
-    // for all players, check if there is a winner
-    // if there is a winner, 
+
   }
-  
-  void pause(Player player) {
-    // pause
-    println("PAUSE!");
-  }
-  
-  void unpause(Player player) {
-    // unpause only if by player that paused
-    println("CONTINUE!");
-  }
-  
-  void winning(Player player) {
-    // winning sequence
-    println("WINNING!");
-  }
-  
-  void replay() {
-    // new game logic - back to setup
-    println("REPLAY");
-  }
+ 
 }

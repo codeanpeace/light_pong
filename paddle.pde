@@ -4,6 +4,7 @@ class Paddle {
   PVector pos, speed;
   float w, h;
 
+//creates the four paddles with position defined by p vectors
   Paddle(int pnum_, color c_) {
     pnum = pnum_;
     c = c_;
@@ -29,7 +30,7 @@ class Paddle {
     w = 175;
     h = 20;
   }
-
+//alllows the paddles to show up on the screen properly
   void display() {
     pushMatrix();
     translate(pos.x, pos.y);

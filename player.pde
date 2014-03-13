@@ -1,7 +1,7 @@
 class Player {
   int number, score;
   color c;
-  Paddle paddle;
+  Paddle paddle; //each player has a paddle
   
   Player(int number_, color c_) {
     c = c_;
@@ -11,6 +11,7 @@ class Player {
   }
   
   void display() {
+    //displays the score for each player in their corresponding color
     textSize(15);
     textAlign(CENTER);
     fill(c);
